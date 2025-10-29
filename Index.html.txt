@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        :root {
+            --primary-color: #9b59b6;
+            --secondary-color: #8e44ad;
+            --text-color: #ecf0f1;
+            --bg-color: #2c3e50;
+            --container-color: #34495e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        .hidden {
+            opacity: 0;
+            filter: blur(5px);
+            transform: translateX(-100%);
+            transition: all 1s;
+        }
+
+        .show {
+            opacity: 1;
+            filter: blur(0);
+            transform: translateX(0);
+        }
+
+        .container {
+            width: 90%;
+            margin: auto;
+        }
+
+        header {
+            background: var(--container-color);
+            padding: 2rem 0;
+            text-align: center;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+        }
+
+        main {
+            padding: 2rem 0;
+        }
+
+        section {
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--secondary-color);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            background: var(--container-color);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .reasons-list {
+            list-style: none;
+            text-align: center;
+        }
+
+        .reasons-list li {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: var(--container-color);
+            border-radius: 5px;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--primary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+
+        .timeline-container {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+
+        .timeline-container.left {
+            left: 0;
+        }
+
+        .timeline-container.right {
+            left: 50%;
+        }
+
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -17px;
+            background-color: var(--text-color);
+            border: 4px solid var(--primary-color);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-container.right::after {
+            left: -16px;
+        }
+
+        .content {
+            padding: 20px 30px;
+            background-color: var(--container-color);
+            position: relative;
+            border-radius: 6px;
+        }
+
+        .gift-section {
+            text-align: center;
+        }
+
+        .gift-box {
+            width: 200px;
+            height: 200px;
+            background: var(--primary-color);
+            margin: 0 auto;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .gift-box::before {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 100%;
+            background: var(--secondary-color);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .gift-box::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 30px;
+            background: var(--secondary-color);
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            background: var(--container-color);
+            border-top: 2px solid var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hidden">
+        <div class="container">
+            <h1>Happy Birthday, My Special One!</h1>
+            <p>This is a journey through our moments.</p>
+        </div>
+    </header>
+
+    <main>
+        <section id="gallery" class="container hidden">
+            <h2>Our Gallery</h2>
+            <div class="gallery">
+                </div>
+        </section>
+
+        <section id="reasons" class="container hidden">
+            <h2>Reasons Why You're Amazing</h2>
+            <ul class="reasons-list">
+                <li>Your kindness and compassion.</li>
+                <li>Your incredible sense of humor.</li>
+                <li>The way you light up any room.</li>
+                <li>Your unwavering support.</li>
+                <li>Your beautiful smile.</li>
+            </ul>
+        </section>
+
+        <section id="timeline" class="container hidden">
+            <h2>Our Journey</h2>
+            <div class="timeline">
+                <div class="timeline-container left">
+                    <div class="content">
+                        <h3>The First Time We Met</h3>
+                        <p>A day I'll never forget. It felt like the start of something truly special.</p>
+                    </div>
+                </div>
+                <div class="timeline-container right">
+                    <div class="content">
+                        <h3>Our First Adventure</h3>
+                        <p>That spontaneous trip that brought us so much closer.</p>
+                    </div>
+                </div>
+                 <div class="timeline-container left">
+                    <div class="content">
+                        <h3>A Moment of Laughter</h3>
+                        <p>That time we couldn't stop laughing. A simple moment, a cherished memory.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gift" class="container gift-section hidden">
+            <h2>A Small Gift for You</h2>
+            <div class="gift-box" onclick="alert('My gift to you is all my love, today and always. Happy Birthday!')"></div>
+        </section>
+    </main>
+
+    <footer class="hidden">
+        <div class="container">
+            <p>With all my love, always.</p>
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                } else {
+                    entry.target.classList.remove('show');
+                }
+            });
+        });
+
+        const hiddenElements = document.querySelectorAll('.hidden');
+        hiddenElements.forEach((el) => observer.observe(el));
+    </script>
+</body>
+</html>
